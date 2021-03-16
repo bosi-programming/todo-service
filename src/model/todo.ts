@@ -7,6 +7,8 @@ enum todoStatus {
 }
 
 export interface ITodo {
+  userId: string;
+  userName: string;
   title: string;
   description: string;
   date: Date;
@@ -18,6 +20,14 @@ interface TodoModelInterface extends mongoose.Model<any> {
 }
 
 const todoSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+  },
+  userName: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
